@@ -9,6 +9,12 @@ import json
 import os
 from datetime import datetime, timedelta
 
+# 設定 yfinance 快取目錄至 /tmp，避免 Streamlit Cloud 因權限問題崩潰
+try:
+    yf.set_tz_cache_location("/tmp")
+except Exception:
+    pass
+
 # Set page configuration - Responsive & Dark Mode styling
 st.set_page_config(
     page_title="台股紅綠燈綜合量化看盤系統",
